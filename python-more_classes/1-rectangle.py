@@ -1,35 +1,53 @@
 #!/usr/bin/python3
-"""Write a class Rectangle that defines a rectangle"""
+"""
+This module defines a class
+"""
 
 
 class Rectangle:
-    """Write a class Rectangle that defines a rectangle"""
+    """
+    This class has two attributes
+    """
+
     def __init__(self, width=0, height=0):
-        self.width = width        
+        """
+        instantiates width and height
+        """
+        self.width = width
         self.height = height
 
     @property
-    def width(self):        
+    def width(self):
+        """
+        function to return width if setter checks have passed
+        """
         return self.__width
 
     @width.setter
     def width(self, value):
-        if type(value) is not int:
+        """
+        setter validates if value is >= 0
+        """
+        if not isinstance(value, int):
             raise TypeError("width must be an integer")
-        elif value < 0:
+        if value < 0:
             raise ValueError("width must be >= 0")
-        else:
-            self.__width = value
-            
+        self.__width = value
+
     @property
-    def height(self):        
+    def height(self):
+        """
+        function to return height if setter checks have passed
+        """
         return self.__height
 
     @height.setter
     def height(self, value):
-        if type(value) is not int:
+        """
+        setter validates if value is >= 0
+        """
+        if not isinstance(value, int):
             raise TypeError("height must be an integer")
-        elif value < 0:
+        if value < 0:
             raise ValueError("height must be >= 0")
-        else:
-            self.__height = value
+        self.__height = value
