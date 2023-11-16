@@ -66,11 +66,11 @@ class Rectangle:
     def __str__(self):
         counter = 0
         output = ""
-        if self.__width== 0 or self.__height == 0:
+        if self.__width == 0 or self.__height == 0:
             return ""
         else:
             while counter < self.__height:
-                output += Rectangle.print_symbol*self.__width
+                output += str(self.print_symbol) * self.__width
                 if counter == (self.__height - 1):
                     break
                 output += "\n"
@@ -83,3 +83,16 @@ class Rectangle:
     def __del__(self):
         Rectangle.number_of_instances -= 1
         print("Bye rectangle...")
+
+    def bigger_or_equal(rect_1, rect_2):
+        if not isinstance(rect_1, Rectangle):
+            raise TypeError("rect_1 must be an instance of Rectangle")
+        if not isinstance(rect_2, Rectangle):
+            raise TypeError("rect_2 must be an instance of Rectangle")
+        if rect_1.area() == rect_2.area():
+            return rect_1
+        else:
+            if rect_1.area() > rect_2.area():
+                return rect_1.area()
+            else:
+                return rect_2.area()
