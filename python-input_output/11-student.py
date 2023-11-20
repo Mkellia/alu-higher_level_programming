@@ -1,54 +1,26 @@
 #!/usr/bin/python3
-"""
-A Student class that defines a Studen (module)
-"""
+"""defines a Student class"""
 
 
-<<<<<<< HEAD
 class Student:
-    """ 
-    this is a student class 
-    """
+    """describe a student instance"""
 
-    def __init__(self, first_name, last_name, age):
-        """
-        just doing init for variables
-=======
-class Student():
-    """
-        A Student class that defines a Student
-    """
-    def __init__(self, first_name, last_name, age):
-        """
-            INIT
->>>>>>> 6427b0b5935bbdf2227a51d2669076a7153f394f
-        """
+    def __init__(self,  first_name, last_name, age):
+        """initialize a student instance"""
         self.first_name = first_name
         self.last_name = last_name
         self.age = age
 
     def to_json(self, attrs=None):
-        """
-<<<<<<< HEAD
-        method converts to json 
-=======
-            retrieves a dictionary representation
-            of a Student instance
->>>>>>> 6427b0b5935bbdf2227a51d2669076a7153f394f
-        """
-        if type(attrs) is list and all([type(x) == str for x in attrs]):
-            return {k: v for k, v in self.__dict__.items() if k in attrs}
-        return(self.__dict__)
+        """return a dict representation of the instance"""
+        json_rep = dict(vars(self))
+        if type(attrs) == list:
+            for i in list(json_rep):
+                if i not in attrs:
+                    json_rep.pop(i, None)
+        return json_rep
 
     def reload_from_json(self, json):
-        """
-<<<<<<< HEAD
-        return json 
-        """
-        for i,j in json.items():
-            self.__dict__(i) = j
-=======
-        """
-        for i, j in json.items():
-            self.__dict__[i] = j
->>>>>>> 6427b0b5935bbdf2227a51d2669076a7153f394f
+        """replaces all attributes of the Student instance with json"""
+        for i in list(json):
+            setattr(self, i, json[i])
