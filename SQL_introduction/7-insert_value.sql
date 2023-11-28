@@ -1,2 +1,3 @@
--- insert a new record
-INSERT first_table Values (89, 'Holberton School')
+-- add to the  table
+INSERT INTO first_table (id, name)
+VALUES (89, 'Holberton School');
