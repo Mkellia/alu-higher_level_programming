@@ -10,9 +10,9 @@ headers = {
 }
 
 req = urllib.request.Request(url, headers=headers)
-with urllib.request.urlopen(req) as kellia:
-    content = kellia.read()
-    print("Body kellia:")
+with urllib.request.urlopen(req) as response:
+    content = response.read()
+    print("Body response:")
     print("\t- type:", type(content))
     print("\t- content:", content)
     print("\t- utf8 content:", content.decode("utf-8"))
